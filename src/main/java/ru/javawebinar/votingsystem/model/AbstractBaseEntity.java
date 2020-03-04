@@ -1,21 +1,34 @@
-package ru.javawebinar.voting_system.model;
+package ru.javawebinar.votingsystem.model;
 
+import javax.persistence.*;
+
+@MappedSuperclass
+@Access(AccessType.FIELD)
 public abstract class AbstractBaseEntity {
+    public static final int START_SEQ = 100000;
+
+    @Id
+    @SequenceGenerator(name = "global_seq", sequenceName = "global_seq", allocationSize = 1, initialValue = START_SEQ)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "global_seq")
     protected Integer id;
 
     public AbstractBaseEntity() {
     }
 
-    public AbstractBaseEntity(int id) {
+    public AbstractBaseEntity(Integer id) {
         this.id = id;
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
+    }
+
+    public boolean isNew() {
+        return this.id == null;
     }
 
     @Override

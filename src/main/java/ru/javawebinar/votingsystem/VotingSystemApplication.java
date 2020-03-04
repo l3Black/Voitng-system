@@ -1,4 +1,4 @@
-package ru.javawebinar.voting_system;
+package ru.javawebinar.votingsystem;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

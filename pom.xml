@@ -9,19 +9,15 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>ru.javawebinar</groupId>
-    <artifactId>voting_system</artifactId>
+    <artifactId>votingsystem</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>voting_system</name>
+    <name>votingsystem</name>
     <description>graduation project</description>
 
     <properties>
         <java.version>1.11</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-
-        <!-- Logging -->
-        <logback.version>1.2.3</logback.version>
-        <slf4j.version>1.7.30</slf4j.version>
     </properties>
 
     <dependencies>
