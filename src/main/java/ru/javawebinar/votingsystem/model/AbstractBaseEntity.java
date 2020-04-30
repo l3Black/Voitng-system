@@ -1,5 +1,7 @@
 package ru.javawebinar.votingsystem.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 
 @MappedSuperclass
@@ -27,6 +29,7 @@ public abstract class AbstractBaseEntity {
         this.id = id;
     }
 
+    @JsonIgnore
     public boolean isNew() {
         return this.id == null;
     }
