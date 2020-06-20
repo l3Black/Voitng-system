@@ -8,11 +8,11 @@ import java.time.LocalTime;
 @Table(name = "vote")
 public class Vote extends AbstractBaseEntity {
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "user_id")
     private User user;
 
-    @OneToOne(fetch = FetchType.LAZY)
+    @OneToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "menu_id")
     private Restaurant restaurant;
 

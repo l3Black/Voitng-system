@@ -6,11 +6,14 @@ import ru.javawebinar.votingsystem.model.Restaurant;
 import ru.javawebinar.votingsystem.model.Vote;
 import ru.javawebinar.votingsystem.repository.RestaurantRepo;
 import ru.javawebinar.votingsystem.repository.VoteRepo;
+import ru.javawebinar.votingsystem.to.VoteTo;
 import ru.javawebinar.votingsystem.util.exception.CannotChangeVoteException;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.Collection;
 import java.util.Objects;
+import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/votes")
@@ -43,14 +46,18 @@ public class VoteController {
     }
 
     @GetMapping()
-    public Iterable<Vote> getVotes() {
-        return voteRepo.findAllByUser(SecurityUtil.authUser());
+    public Collection<VoteTo> getVotes() {
+        return voteRepo.findAllByUser(SecurityUtil.authUser()).stream()
+                .map(VoteTo::new)
+                .collect(Collectors.toList());
     }
 
     @GetMapping("/result")
-    public Iterable<Vote> getVotesToday() {
+    public Collection<VoteTo> getVotesToday() {
         LocalDate today = LocalDate.now();
-        return voteRepo.findAllByDate(today);
+        return voteRepo.findAllByDate(today).stream()
+                .map(VoteTo::new)
+                .collect(Collectors.toList());
     }
 
 }

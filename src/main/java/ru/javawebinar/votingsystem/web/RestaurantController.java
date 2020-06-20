@@ -55,12 +55,12 @@ public class RestaurantController {
         repository.delete(restaurant);
     }
 
-    @GetMapping
+    @GetMapping("/history")
     public Iterable<Restaurant> getAll() {
         return repository.findAll();
     }
 
-    @GetMapping()
+    @GetMapping
     public Iterable<Restaurant> getRestaurantsToday() {
         LocalDate today = LocalDate.now();
         return repository.findAllByDate(today);

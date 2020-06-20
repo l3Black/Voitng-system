@@ -6,12 +6,13 @@ import ru.javawebinar.votingsystem.model.User;
 import ru.javawebinar.votingsystem.model.Vote;
 
 import java.time.LocalDate;
+import java.util.Collection;
 
 public interface VoteRepo extends CrudRepository<Vote, Integer> {
 
     Vote findByRestaurantAndUser(Restaurant rest, User user);
 
-    Iterable<Vote> findAllByUser(User user);
+    Collection<Vote> findAllByUser(User user);
 
-    Iterable<Vote> findAllByDate(LocalDate date);
+    Collection<Vote> findAllByDate(LocalDate date);
 }

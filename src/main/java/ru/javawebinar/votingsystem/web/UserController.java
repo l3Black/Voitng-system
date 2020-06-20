@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import ru.javawebinar.votingsystem.model.User;
 import ru.javawebinar.votingsystem.repository.UserRepository;
+import ru.javawebinar.votingsystem.to.UserTo;
 import ru.javawebinar.votingsystem.util.exception.NotFoundException;
 
 import java.net.URI;
@@ -24,8 +25,9 @@ public class UserController {
     }
 
     @GetMapping("/{id}")
-    public User get(@PathVariable Integer id) {
-        return repository.findById(id).orElseThrow(() -> new NotFoundException("user", id));
+    public UserTo get(@PathVariable Integer id) {
+        User user = repository.findById(id).orElseThrow(() -> new NotFoundException("user", id));
+        return new UserTo(user);
     }
 
     @PostMapping
