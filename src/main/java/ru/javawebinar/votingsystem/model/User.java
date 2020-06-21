@@ -32,11 +32,25 @@ public class User extends AbstractNamedEntity {
         super(id, name);
     }
 
+    public User(Integer id, String name, @Email String email, String password) {
+        super(id, name);
+        this.email = email;
+        this.password = password;
+    }
+
     public User(String name, @Email String email, String password) {
         this(null, name);
         this.email = email;
         this.password = password;
         this.role = Role.ROLE_USER;
+    }
+
+    public User(User user) {
+        super(user.getId(), user.getName());
+        this.email = user.getEmail();
+        this.password = user.getPassword();
+        this.role = user.getRole();
+        this.votes = user.getVotes();
     }
     //setters
 

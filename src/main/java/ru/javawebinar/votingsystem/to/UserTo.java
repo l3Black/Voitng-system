@@ -2,6 +2,7 @@ package ru.javawebinar.votingsystem.to;
 
 import ru.javawebinar.votingsystem.model.User;
 
+import java.beans.ConstructorProperties;
 import java.time.LocalDate;
 
 public class UserTo {
@@ -17,6 +18,14 @@ public class UserTo {
         this.registered = user.getRegistered();
     }
 
+    @ConstructorProperties({"id", "name", "email", "registered"})
+    public UserTo(int id, String name, String email, LocalDate registered) {
+        this.id = id;
+        this.name = name;
+        this.email = email;
+        this.registered = registered;
+    }
+
     public int getId() {
         return id;
     }
@@ -25,7 +34,7 @@ public class UserTo {
         return name;
     }
 
-    public String getEmailL() {
+    public String getEmail() {
         return email;
     }
 

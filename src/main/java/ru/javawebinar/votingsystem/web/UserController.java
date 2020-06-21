@@ -16,15 +16,18 @@ import static ru.javawebinar.votingsystem.util.ValidationUtil.assureIdConsistent
 import static ru.javawebinar.votingsystem.util.ValidationUtil.checkNew;
 
 @RestController
-@RequestMapping("/users")
+@RequestMapping(UserController.REST_URL)
 public class UserController {
     private final UserRepository repository;
+
+    static final String REST_URL = "/users";
 
     public UserController(UserRepository repository) {
         this.repository = repository;
     }
 
     @GetMapping("/{id}")
+    @ResponseStatus(HttpStatus.OK)
     public UserTo get(@PathVariable Integer id) {
         User user = repository.findById(id).orElseThrow(() -> new NotFoundException("user", id));
         return new UserTo(user);
