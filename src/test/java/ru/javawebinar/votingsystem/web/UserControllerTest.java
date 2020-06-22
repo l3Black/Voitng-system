@@ -7,9 +7,9 @@ import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.ResultActions;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import ru.javawebinar.votingsystem.JsonUtil;
-import ru.javawebinar.votingsystem.TestData;
 import ru.javawebinar.votingsystem.TestMatcher;
 import ru.javawebinar.votingsystem.TestUtil;
+import ru.javawebinar.votingsystem.UserTestData;
 import ru.javawebinar.votingsystem.model.User;
 import ru.javawebinar.votingsystem.repository.UserRepository;
 import ru.javawebinar.votingsystem.to.UserTo;
@@ -17,8 +17,8 @@ import ru.javawebinar.votingsystem.to.UserTo;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
-import static ru.javawebinar.votingsystem.TestData.USER1;
-import static ru.javawebinar.votingsystem.TestData.USER2;
+import static ru.javawebinar.votingsystem.UserTestData.USER1;
+import static ru.javawebinar.votingsystem.UserTestData.USER2;
 
 
 public class UserControllerTest extends AbstractControllerTest {
@@ -40,7 +40,7 @@ public class UserControllerTest extends AbstractControllerTest {
 
     @Test
     public void create() throws Exception {
-        User newUser = TestData.getNew();
+        User newUser = UserTestData.getNew();
         ResultActions action = mvc.perform(MockMvcRequestBuilders.post(REST_URL)
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(JsonUtil.writeValue(newUser)))
@@ -55,7 +55,7 @@ public class UserControllerTest extends AbstractControllerTest {
 
     @Test
     public void update() throws Exception {
-        User updated = TestData.getUpdated();
+        User updated = UserTestData.getUpdated();
         mvc.perform(MockMvcRequestBuilders.put(REST_URL + USER2.getId())
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(JsonUtil.writeValue(updated)))

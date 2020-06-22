@@ -4,8 +4,9 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import ru.javawebinar.votingsystem.model.Restaurant;
 
 import java.time.LocalDate;
+import java.util.List;
 
 public interface RestaurantRepo extends JpaRepository<Restaurant, Integer> {
 
-    Iterable<Restaurant> findAllByDate(LocalDate date);
+    List<Restaurant> findAllByDateOrderByName(LocalDate date);
 }

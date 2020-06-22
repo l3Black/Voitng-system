@@ -12,7 +12,7 @@ INSERT INTO user (name, email, password, role) VALUES
 INSERT INTO restaurant (date, name) VALUES
 ('2020-06-20', 'mumu'),
 ('2020-06-20', 'bk'),
-('2020-06-20', 'tanuki');
+('2020-06-21', 'tanuki');
 
 INSERT INTO dish (name, rest_id, price)
 VALUES ('borsch', 100003, 220),

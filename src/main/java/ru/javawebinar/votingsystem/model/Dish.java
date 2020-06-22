@@ -8,7 +8,7 @@ import javax.persistence.*;
 @Table(name = "dish")
 public class Dish extends AbstractNamedEntity {
 
-    private float price;
+    private Integer price;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "rest_id")
@@ -18,12 +18,28 @@ public class Dish extends AbstractNamedEntity {
     public Dish() {
     }
 
+    public Dish(Integer id, String name, Integer price, Restaurant restaurant) {
+        super(id, name);
+        this.price = price;
+        this.restaurant = restaurant;
+    }
+
+    @Override
+    public String toString() {
+        return "Dish{" +
+                "price=" + price +
+                ", restaurant=" + restaurant +
+                ", name='" + name + '\'' +
+                ", id=" + id +
+                '}';
+    }
+
     //Getters and Setters
-    public float getPrice() {
+    public Integer getPrice() {
         return price;
     }
 
-    public void setPrice(float price) {
+    public void setPrice(Integer price) {
         this.price = price;
     }
 

@@ -2,7 +2,7 @@ package ru.javawebinar.votingsystem;
 
 import ru.javawebinar.votingsystem.model.User;
 
-public class TestData {
+public class UserTestData {
     public static final User USER1 = new User(100000, "User", "user@yandex.ru", "password");
     public static final User USER2 = new User(100001, "User", "user@yandex.ru", "password");
 
