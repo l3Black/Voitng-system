@@ -6,7 +6,7 @@ import ru.javawebinar.votingsystem.model.Restaurant;
 import java.time.LocalDate;
 import java.util.List;
 
-public class RestaurantTestData {
+public final class RestaurantTestData {
     public final static Restaurant REST1 = new Restaurant(100004, "bk", LocalDate.of(2020, 6, 20));
     private final static Dish DISH1_1 = new Dish(100009, "burger", 230, REST1);
     private final static Dish DISH1_2 = new Dish(100010, "cezar", 279, REST1);

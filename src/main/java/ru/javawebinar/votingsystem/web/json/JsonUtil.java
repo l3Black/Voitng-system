@@ -1,15 +1,14 @@
-package ru.javawebinar.votingsystem;
+package ru.javawebinar.votingsystem.web.json;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectReader;
-import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 
 import java.io.IOException;
 import java.util.List;
 
 public class JsonUtil {
-    private static final ObjectMapper JSON = new ObjectMapper().registerModule(new JavaTimeModule());
+    private static final ObjectMapper JSON = JacksonObjectMapper.getMapper();
 
     public static <T> List<T> readValues(String json, Class<T> clazz) {
         ObjectReader reader = JSON.readerFor(clazz);

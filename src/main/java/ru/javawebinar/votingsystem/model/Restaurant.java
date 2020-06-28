@@ -32,6 +32,16 @@ public class Restaurant extends AbstractNamedEntity {
         this.dishes = restaurant.getDishes();
     }
 
+    @Override
+    public String toString() {
+        return "Restaurant{" +
+                "date=" + date +
+                ", dishes=" + dishes +
+                ", name='" + name + '\'' +
+                ", id=" + id +
+                '}';
+    }
+
     //Getters and Setters
 
     public LocalDate getDate() {

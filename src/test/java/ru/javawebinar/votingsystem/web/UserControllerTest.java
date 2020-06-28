@@ -6,13 +6,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.ResultActions;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
-import ru.javawebinar.votingsystem.JsonUtil;
 import ru.javawebinar.votingsystem.TestMatcher;
 import ru.javawebinar.votingsystem.TestUtil;
 import ru.javawebinar.votingsystem.UserTestData;
 import ru.javawebinar.votingsystem.model.User;
 import ru.javawebinar.votingsystem.repository.UserRepository;
 import ru.javawebinar.votingsystem.to.UserTo;
+import ru.javawebinar.votingsystem.web.json.JsonUtil;
 
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
